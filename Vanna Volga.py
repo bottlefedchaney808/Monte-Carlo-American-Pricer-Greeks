@@ -3,7 +3,7 @@ import numpy as np
 import datetime
 import matplotlib.pyplot as plt
 from MC import MC
-import SABRparam as SABR
+
 
 
 def calculate_weight(underlying, mtr, ATM_vol, K, K1, K2, K3):
@@ -101,7 +101,7 @@ def cal_ttm(row):
     ttm = (mtr - tradetime).total_seconds() / (365 * 24 * 60 * 60)
     return ttm
 
-historical_vol = pd.read_csv('D:\\SABR model/vol_data/SABR_model_param_4.csv')
+historical_vol = pd.read_csv("E:\Repositories\Monte-Carlo-American-Pricer-Greeks\OptionChain_GME 15-Jan-21_20201218.csv")
 historical_vol['mtr'] = historical_vol.apply(cal_ttm, axis= 1)
 historical_group = historical_vol.groupby(['Date','Maturity'])
 result_df = pd.DataFrame()
